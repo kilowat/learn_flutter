@@ -3,6 +3,7 @@ import 'package:flutter_app_ui_2/components/title_text.dart';
 import 'package:flutter_app_ui_2/constants.dart';
 import 'package:flutter_app_ui_2/models/Categories.dart';
 import 'package:flutter_app_ui_2/size_config.dart';
+import 'package:flutter_app_ui_2/template_config.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
@@ -16,7 +17,7 @@ class CategoryCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(defaultSize * 2),
       child: SizedBox(
-        width: defaultSize * 20.5,
+        width: defaultSize * (41 / TemplateConfig.gridCount),
         child: AspectRatio(
           aspectRatio: 0.83,
           child: Stack(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_ui_2/size_config.dart';
+import 'package:flutter_app_ui_2/template_config.dart';
 
 class TitleText extends StatelessWidget {
   const TitleText({
@@ -13,8 +14,11 @@ class TitleText extends StatelessWidget {
     double defaultSize = SizeConfig.defaultSize;
     return Text(
       title,
-      style:
-          TextStyle(fontSize: defaultSize * 1.6, fontWeight: FontWeight.bold),
+      style: TextStyle(
+          fontSize: TemplateConfig.gridCount == 2
+              ? 1.6 * defaultSize
+              : 1.2 * defaultSize,
+          fontWeight: FontWeight.bold),
     );
   }
 }

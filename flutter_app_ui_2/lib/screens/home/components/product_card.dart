@@ -3,6 +3,7 @@ import 'package:flutter_app_ui_2/components/title_text.dart';
 import 'package:flutter_app_ui_2/constants.dart';
 import 'package:flutter_app_ui_2/models/Product.dart';
 import 'package:flutter_app_ui_2/size_config.dart';
+import 'package:flutter_app_ui_2/template_config.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -44,7 +45,7 @@ class ProductCard extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: defaultSize),
                 child: TitleText(title: product.title),
               ),
-              SizedBox(height: defaultSize / 2),
+              SizedBox(height: defaultSize / TemplateConfig.gridCount),
               Text("\$${product.price}"),
               const Spacer(),
             ],

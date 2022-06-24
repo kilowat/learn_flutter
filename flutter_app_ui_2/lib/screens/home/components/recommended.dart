@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_ui_2/models/Product.dart';
 import 'package:flutter_app_ui_2/screens/detail/detail_screen.dart';
 import 'package:flutter_app_ui_2/size_config.dart';
+import 'package:flutter_app_ui_2/template_config.dart';
 
 import 'product_card.dart';
 
@@ -22,8 +23,9 @@ class RecommendedProduct extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         itemCount: products.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount:
-              SizeConfig.orientation == Orientation.portrait ? 2 : 4,
+          crossAxisCount: SizeConfig.orientation == Orientation.portrait
+              ? TemplateConfig.gridCount
+              : 4,
           childAspectRatio: 0.639,
           mainAxisSpacing: 20,
           crossAxisSpacing: 20,
