@@ -17,38 +17,42 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    TemplateConfig().init();
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      scrollBehavior: const MaterialScrollBehavior().copyWith(
-        dragDevices: {
-          PointerDeviceKind.mouse,
-          PointerDeviceKind.touch,
-          PointerDeviceKind.stylus,
-          PointerDeviceKind.unknown
-        },
-      ),
-      title: 'Furniture app',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
-          color: TemplateConfig.appBarColor,
-          elevation: 0,
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: TemplateConfig.appBarColor,
-            statusBarIconBrightness: TemplateConfig.statusBarIsDark
-                ? Brightness.dark
-                : Brightness.light, // For Android (dark icons)
-            statusBarBrightness: TemplateConfig.statusBarIsDark
-                ? Brightness.light
-                : Brightness.dark, // For iOS (dark icons)
+    return FutureBuilder(
+      future: TemplateConfig().init(),
+      builder: (context, snapshot) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          scrollBehavior: const MaterialScrollBehavior().copyWith(
+            dragDevices: {
+              PointerDeviceKind.mouse,
+              PointerDeviceKind.touch,
+              PointerDeviceKind.stylus,
+              PointerDeviceKind.unknown
+            },
           ),
-        ),
-        textTheme:
-            GoogleFonts.dmSansTextTheme().apply(decorationColor: kTextColor),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: const HomeScreen(),
+          title: 'Furniture app',
+          theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            appBarTheme: AppBarTheme(
+              color: TemplateConfig.appBarColor,
+              elevation: 0,
+              systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarColor: TemplateConfig.appBarColor,
+                statusBarIconBrightness: TemplateConfig.statusBarIsDark
+                    ? Brightness.dark
+                    : Brightness.light, // For Android (dark icons)
+                statusBarBrightness: TemplateConfig.statusBarIsDark
+                    ? Brightness.light
+                    : Brightness.dark, // For iOS (dark icons)
+              ),
+            ),
+            textTheme: GoogleFonts.dmSansTextTheme()
+                .apply(decorationColor: kTextColor),
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          home: const HomeScreen(),
+        );
+      },
     );
   }
 }
