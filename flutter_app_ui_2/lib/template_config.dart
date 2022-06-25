@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 extension HexColor on Color {
   /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
@@ -30,20 +27,5 @@ class TemplateConfig {
     appBarColor = Colors.white;
     appBarTextColor = Colors.black;
     statusBarIsDark = true;
-    final url = Uri.parse('https://tcvector.com/m_test/config.php');
-    final response = await http.get(url);
-    if (response.statusCode == 200) {
-      try {
-        final jsonResult = json.decode(response.body);
-        gridCount = jsonResult['gridCount'] as int;
-        appBarColor = HexColor.fromHex(jsonResult['appBarColor'] as String);
-        print(jsonResult['appBarTextColor']);
-        appBarTextColor =
-            HexColor.fromHex(jsonResult['appBarTextColor'] as String);
-        statusBarIsDark = jsonResult['statusBarIsDark'] as bool;
-      } catch (e) {
-        print(e);
-      }
-    }
   }
 }
