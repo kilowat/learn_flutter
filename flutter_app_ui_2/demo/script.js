@@ -11,8 +11,8 @@ function updateView(view) {
 
 /*Controls*/
 function updateIframe() {
-  phone.style.width = document.getElementById("iframeWidth").value + "px";
-  phone.style.height = document.getElementById("iframeHeight").value + "px";
+  phone.style.width = 390 + "px";
+  phone.style.height = 844 + "px";
 }
 updateIframe();
 
