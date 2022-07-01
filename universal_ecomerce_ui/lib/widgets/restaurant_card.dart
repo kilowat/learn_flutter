@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:universal_ecommerce_ui/import.dart';
 
 class RestaurantCard extends StatelessWidget {
-  const RestaurantCard({
-    Key? key,
-  }) : super(key: key);
+  const RestaurantCard({Key? key, required this.restaurant}) : super(key: key);
+
+  final RestaurantModel restaurant;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
-      margin: const EdgeInsets.only(left: kDefaultPadding),
+      padding: const EdgeInsets.all(12),
       width: getProportionWidth(147),
       height: getProportionWidth(184),
       decoration: BoxDecoration(
@@ -21,7 +20,7 @@ class RestaurantCard extends StatelessWidget {
               color: Colors.black12.withOpacity(0.01))
         ],
         borderRadius: BorderRadius.circular(15),
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.background,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,13 +28,13 @@ class RestaurantCard extends StatelessWidget {
           SizedBox(
             height: getProportionWidth(92),
             child: Image.asset(
-              'assets/demo/rest_1.png',
+              restaurant.image,
               fit: BoxFit.contain,
             ),
           ),
           const SizedBox(height: 10),
           Text(
-            "Name",
+            restaurant.name,
             textAlign: TextAlign.center,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -46,15 +45,20 @@ class RestaurantCard extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            "12 min",
+            restaurant.distance,
             textAlign: TextAlign.center,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontSize: getProportionWidth(13),
               fontWeight: FontWeight.w300,
+              color: Theme.of(context)
+                  .textTheme
+                  .bodyText1!
+                  .color!
+                  .withOpacity(0.8),
             ),
-          )
+          ),
         ],
       ),
     );

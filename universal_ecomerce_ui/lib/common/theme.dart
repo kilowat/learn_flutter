@@ -7,6 +7,7 @@ ThemeData lightThemeData(BuildContext context) {
     colorScheme: const ColorScheme.light(
       primary: kPrimaryColor,
       secondary: kSecondaryColor,
+      secondaryContainer: Colors.white,
     ),
     iconTheme: const IconThemeData(color: kSecondaryColor),
     scaffoldBackgroundColor: Colors.white,
@@ -27,19 +28,21 @@ ThemeData lightThemeData(BuildContext context) {
 ThemeData darkThemeData(BuildContext context) {
   return ThemeData.dark().copyWith(
     primaryColor: kPrimaryColor,
+    scaffoldBackgroundColor: kDarkBackgroundColor,
     textTheme: const TextTheme(
       bodyText1: TextStyle(color: Colors.white),
       bodyText2: TextStyle(color: Colors.white),
     ),
-    colorScheme: ColorScheme.dark(
+    colorScheme: const ColorScheme.dark(
       primary: kPrimaryColor,
+      secondaryContainer: kDarkBlackBackgroundColor,
       secondary: kSecondaryColor,
-      background: Colors.black.withOpacity(0.3),
+      background: kDarkBackgroundLighterColor,
     ),
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const ButtonThemeData(
       colorScheme: ColorScheme.dark(
         secondary: kSecondaryLightColor,
-        background: Colors.black.withOpacity(0.3),
+        background: kDarkBackgroundLighterColor,
       ),
     ),
   );

@@ -5,8 +5,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:universal_ecommerce_ui/import.dart';
 import 'package:universal_ecommerce_ui/screens/home.dart';
 
-import 'generated/l10n.dart';
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   // Than we setup preferred orientations,

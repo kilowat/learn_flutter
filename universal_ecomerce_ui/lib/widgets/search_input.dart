@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:universal_ecommerce_ui/common/size_config.dart';
 import 'package:universal_ecommerce_ui/import.dart';
 
 class SearchInput extends StatelessWidget {
@@ -20,6 +19,7 @@ class SearchInput extends StatelessWidget {
           Expanded(
             child: TextField(
               style: TextStyle(
+                height: getProportionWidth(3.3),
                 fontSize: getProportionWidth(14),
               ),
               decoration: InputDecoration(

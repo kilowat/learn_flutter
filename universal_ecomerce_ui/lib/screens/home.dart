@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:universal_ecommerce_ui/generated/l10n.dart';
 import 'package:universal_ecommerce_ui/import.dart';
 import 'package:universal_ecommerce_ui/screens/home/cart.dart';
 import 'package:universal_ecommerce_ui/screens/home/main.dart';
@@ -40,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     SizeConfig().init(context);
     return Scaffold(
       extendBody: true,
+      extendBodyBehindAppBar: true,
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         onPageChanged: (index) {

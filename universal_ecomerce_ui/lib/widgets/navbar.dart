@@ -6,13 +6,15 @@ class NavBar extends StatelessWidget {
     Key? key,
     required this.items,
   }) : super(key: key);
+
   final List<NavBarItem> items;
+  static const double height = 75;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        height: getProportionHeight(75),
+        height: getProportionHeight(NavBar.height),
         margin: const EdgeInsets.all(kDefaultPadding / 2),
         padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
         decoration: BoxDecoration(

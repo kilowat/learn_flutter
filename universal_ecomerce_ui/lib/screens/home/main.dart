@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:universal_ecommerce_ui/generated/l10n.dart';
 import 'package:universal_ecommerce_ui/import.dart';
 
 class MainPage extends StatelessWidget {
@@ -9,42 +8,44 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(top: 60),
-      width: double.infinity,
-      height: SizeConfig.screenHeight,
-      decoration: const BoxDecoration(
-        image: kBackgroundDecorationImage,
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            ScreenTitle(text: S.of(context).HOME_SCREEN_TITLE),
-            SizedBox(height: getProportionWidth(20)),
-            const SearchInput(),
-            SizedBox(height: getProportionWidth(20)),
-            const _BannerList(),
-            SizedBox(height: getProportionWidth(25)),
-            Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment(0.01, 0.1),
-                  colors: <Color>[
-                    Colors.white,
-                    Color(0xFFF3F7FE),
-                  ],
-                  tileMode: TileMode.mirror,
-                ),
-              ),
-              child: Column(
-                children: const [
-                  _RestaurantList(),
-                  _PopularMenuList(),
+    return SingleChildScrollView(
+      child: BackgroundGradient(
+        child: Container(
+          padding: const EdgeInsets.only(
+            top: 60,
+            bottom: NavBar.height + kDefaultPadding / 2,
+          ),
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            image: kBackgroundDecorationImage,
+          ),
+          child: Column(
+            children: [
+              ScreenTitle(text: S.of(context).HOME_SCREEN_TITLE),
+              SizedBox(height: getProportionWidth(20)),
+              const SearchInput(),
+              SizedBox(height: getProportionWidth(20)),
+              const _BannerList(),
+              SizedBox(height: getProportionWidth(20)),
+              Column(
+                children: [
+                  _RecommendLink(
+                    title: S.of(context).NEAREST_RESTAURANT,
+                    press: () {},
+                  ),
+                  SizedBox(height: getProportionHeight(10)),
+                  const _RestaurantList(),
+                  SizedBox(height: getProportionWidth(5)),
+                  _RecommendLink(
+                    title: S.of(context).POPULAR_MENU,
+                    press: () {},
+                  ),
+                  SizedBox(height: getProportionHeight(10)),
+                  const PopularMenu(),
                 ],
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -152,52 +153,22 @@ class _RestaurantList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _RecommendLink(
-          title: S.of(context).NEAREST_RESTAURANT,
-          press: () {},
-        ),
-        SizedBox(height: getProportionHeight(10)),
         SingleChildScrollView(
           padding: const EdgeInsets.only(bottom: 4),
           scrollDirection: Axis.horizontal,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: List.generate(
-              6,
-              (index) => const RestaurantCard(),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _PopularMenuList extends StatelessWidget {
-  const _PopularMenuList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _RecommendLink(
-          title: S.of(context).POPULAR_MENU,
-          press: () {},
-        ),
-        SizedBox(height: getProportionHeight(kDefaultPadding)),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-          child: Column(
-            children: List.generate(
-              2,
+              restaurantDemo.length,
               (index) => Container(
-                margin: const EdgeInsets.only(bottom: kDefaultPadding),
-                height: getProportionWidth(87),
-                color: Colors.purple,
+                margin: EdgeInsets.only(left: getProportionWidth(20)),
+                child: RestaurantCard(
+                  restaurant: restaurantDemo[index],
+                ),
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
