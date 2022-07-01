@@ -1,3 +1,12 @@
 {
-  "HOME_SCREEN_TITLE": "Find you \nfavorite product"
+  "HOME_SCREEN_TITLE": "Find you \nfavorite product",
+  "BUY_NOW": "Buy now",
+  "NEAREST_RESTAURANT": "Nearest Restaurant",
+  "VIEW_MORE": "View more",
+  "POPULAR_MENU" : "Popular Menu",
+  "MENU_ITEM_HOME" : "Home",
+  "MENU_ITEM_PROFILE" : "Profile",
+  "MENU_ITEM_CART" : "Cart",
+  "MENU_ITEM_NOTIFY" : "Messages"
+
 }

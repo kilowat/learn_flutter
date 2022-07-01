@@ -59,6 +59,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Buy now`
+  String get BUY_NOW {
+    return Intl.message(
+      'Buy now',
+      name: 'BUY_NOW',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nearest Restaurant`
+  String get NEAREST_RESTAURANT {
+    return Intl.message(
+      'Nearest Restaurant',
+      name: 'NEAREST_RESTAURANT',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View more`
+  String get VIEW_MORE {
+    return Intl.message(
+      'View more',
+      name: 'VIEW_MORE',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular Menu`
+  String get POPULAR_MENU {
+    return Intl.message(
+      'Popular Menu',
+      name: 'POPULAR_MENU',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get MENU_ITEM_HOME {
+    return Intl.message(
+      'Home',
+      name: 'MENU_ITEM_HOME',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get MENU_ITEM_PROFILE {
+    return Intl.message(
+      'Profile',
+      name: 'MENU_ITEM_PROFILE',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cart`
+  String get MENU_ITEM_CART {
+    return Intl.message(
+      'Cart',
+      name: 'MENU_ITEM_CART',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Messages`
+  String get MENU_ITEM_NOTIFY {
+    return Intl.message(
+      'Messages',
+      name: 'MENU_ITEM_NOTIFY',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -16,11 +16,15 @@ class SizeConfig {
 }
 
 double getProportionHeight(double inputHeight) {
-  double screenHeight = SizeConfig.screenHeight;
+  double screenHeight = SizeConfig.orientation == Orientation.portrait
+      ? SizeConfig.screenHeight
+      : SizeConfig.screenWidth;
   return (inputHeight / kTemplateHeight) * screenHeight;
 }
 
 double getProportionWidth(double inputWidth) {
-  double screenWidth = SizeConfig.screenWidth;
+  double screenWidth = SizeConfig.orientation == Orientation.portrait
+      ? SizeConfig.screenWidth
+      : SizeConfig.screenHeight;
   return (inputWidth / kTemplateWidth) * screenWidth;
 }
