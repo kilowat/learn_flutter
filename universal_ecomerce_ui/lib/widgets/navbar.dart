@@ -27,8 +27,8 @@ class NavBar extends StatelessWidget {
                 color: Colors.black12.withOpacity(0.07))
           ],
         ),
-        child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween, children: items),
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: items),
       ),
     );
   }

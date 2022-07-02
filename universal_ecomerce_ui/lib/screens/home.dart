@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:universal_ecommerce_ui/import.dart';
 import 'package:universal_ecommerce_ui/screens/home/cart.dart';
-import 'package:universal_ecommerce_ui/screens/home/main.dart';
+import 'package:universal_ecommerce_ui/screens/home/index.dart';
 import 'package:universal_ecommerce_ui/screens/home/notify.dart';
 import 'package:universal_ecommerce_ui/screens/home/profile.dart';
 
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         controller: pageController,
         children: const [
-          MainPage(),
+          IndexPage(),
           ProfilePage(),
           CartPage(),
           NotifyPage(),

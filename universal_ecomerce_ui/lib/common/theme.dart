@@ -14,6 +14,10 @@ ThemeData lightThemeData(BuildContext context) {
     textTheme: const TextTheme(
       bodyText1: TextStyle(color: kTextColor),
       bodyText2: TextStyle(color: kTextColor),
+      headline6: TextStyle(
+        color: kSecondaryVariant,
+        fontWeight: FontWeight.bold,
+      ),
     ),
     buttonTheme: ButtonThemeData(
       colorScheme: ColorScheme.light(
@@ -32,6 +36,10 @@ ThemeData darkThemeData(BuildContext context) {
     textTheme: const TextTheme(
       bodyText1: TextStyle(color: Colors.white),
       bodyText2: TextStyle(color: Colors.white),
+      headline6: TextStyle(
+        color: kSecondaryVariant,
+        fontWeight: FontWeight.bold,
+      ),
     ),
     colorScheme: const ColorScheme.dark(
       primary: kPrimaryColor,
@@ -47,8 +55,3 @@ ThemeData darkThemeData(BuildContext context) {
     ),
   );
 }
-
-const kBackgroundDecorationImage = DecorationImage(
-  alignment: Alignment.topRight,
-  image: AssetImage('assets/images/bg_1.png'),
-);

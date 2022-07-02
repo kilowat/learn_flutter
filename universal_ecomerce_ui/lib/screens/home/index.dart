@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:universal_ecommerce_ui/import.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({
+class IndexPage extends StatelessWidget {
+  const IndexPage({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: BackgroundGradient(
-        child: Container(
+      child: ScreenContainer(
+        gradient: kHomeScreenGradient,
+        backgroundImage: kBackgroundDecorationImage,
+        child: Padding(
           padding: const EdgeInsets.only(
             top: 60,
             bottom: NavBar.height + kDefaultPadding / 2,
-          ),
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            image: kBackgroundDecorationImage,
           ),
           child: Column(
             children: [
@@ -41,7 +39,7 @@ class MainPage extends StatelessWidget {
                     press: () {},
                   ),
                   SizedBox(height: getProportionHeight(10)),
-                  const PopularMenu(),
+                  PopularMenu(menus: [menuDemo[0]]),
                 ],
               ),
             ],
