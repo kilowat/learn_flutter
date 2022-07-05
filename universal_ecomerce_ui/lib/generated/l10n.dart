@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Find you \nfavorite product`
+  /// `Find you favorite product`
   String get HOME_SCREEN_TITLE {
     return Intl.message(
-      'Find you \nfavorite product',
+      'Find you favorite product',
       name: 'HOME_SCREEN_TITLE',
       desc: '',
       args: [],
@@ -130,10 +130,10 @@ class S {
     );
   }
 
-  /// `Messages`
+  /// `Notify`
   String get MENU_ITEM_NOTIFY {
     return Intl.message(
-      'Messages',
+      'Notify',
       name: 'MENU_ITEM_NOTIFY',
       desc: '',
       args: [],

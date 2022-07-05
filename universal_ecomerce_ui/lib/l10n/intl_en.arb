@@ -1,5 +1,5 @@
 {
-  "HOME_SCREEN_TITLE": "Find you \nfavorite product",
+  "HOME_SCREEN_TITLE": "Find you favorite product",
   "BUY_NOW": "Buy now",
   "NEAREST_RESTAURANT": "Nearest Restaurant",
   "VIEW_MORE": "View more",
@@ -7,6 +7,6 @@
   "MENU_ITEM_HOME" : "Home",
   "MENU_ITEM_PROFILE" : "Profile",
   "MENU_ITEM_CART" : "Cart",
-  "MENU_ITEM_NOTIFY" : "Messages"
+  "MENU_ITEM_NOTIFY" : "Notify"
 
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:universal_ecommerce_ui/import.dart';
+
+import '../import.dart';
 
 class ScreenTitle extends StatelessWidget {
   const ScreenTitle({
@@ -16,18 +17,20 @@ class ScreenTitle extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            text,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: getProportionWidth(31),
+          Flexible(
+            child: Text(
+              text,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 31,
+              ),
             ),
           ),
           Stack(
             children: [
               Container(
-                width: getProportionWidth(45),
-                height: getProportionWidth(45),
+                width: 45,
+                height: 45,
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.background,
@@ -44,16 +47,16 @@ class ScreenTitle extends StatelessWidget {
                 ),
                 child: Icon(
                   Icons.notifications_outlined,
-                  size: getProportionWidth(28),
+                  size: 28,
                   color: Theme.of(context).primaryColor,
                 ),
               ),
               Positioned(
-                right: getProportionWidth(15),
-                top: getProportionWidth(12),
+                right: 15,
+                top: 12,
                 child: Container(
-                  width: getProportionWidth(6),
-                  height: getProportionWidth(6),
+                  width: 6,
+                  height: 6,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.red,
@@ -61,8 +64,8 @@ class ScreenTitle extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: getProportionWidth(45),
-                height: getProportionWidth(45),
+                width: 45,
+                height: 45,
                 child: TextButton(
                   onPressed: () {},
                   child: Container(color: Colors.transparent),

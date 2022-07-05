@@ -15,7 +15,7 @@ class RestaurantModel {
 final List<RestaurantModel> restaurantDemo = [
   RestaurantModel(
     id: 1,
-    name: "Vegan Resto",
+    name: "Vegan Resto long name",
     image: "assets/demo/rest_1.png",
     distance: "12 min",
   ),
@@ -36,5 +36,11 @@ final List<RestaurantModel> restaurantDemo = [
     name: "Smart Resto",
     image: "assets/demo/rest_4.png",
     distance: "8 Mins",
+  ),
+  RestaurantModel(
+    id: 5,
+    name: "Super food",
+    image: "assets/demo/rest_4.png",
+    distance: "18 Mins",
   ),
 ];

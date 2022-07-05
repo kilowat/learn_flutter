@@ -1,8 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:universal_ecommerce_ui/import.dart';
 import 'package:universal_ecommerce_ui/screens/home.dart';
+
+import 'generated/l10n.dart';
+import 'import.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init();
     return MaterialApp(
       localizationsDelegates: const [
         S.delegate,
@@ -34,6 +37,7 @@ class MyApp extends StatelessWidget {
       theme: lightThemeData(context),
       darkTheme: darkThemeData(context),
       themeMode: ThemeMode.system,
+      navigatorKey: navigatorKey,
       home: const HomeScreen(),
     );
   }

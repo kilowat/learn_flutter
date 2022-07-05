@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:universal_ecommerce_ui/import.dart';
+
+import '../import.dart';
 
 class SearchInput extends StatelessWidget {
   const SearchInput({
@@ -12,20 +13,16 @@ class SearchInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-      height: getProportionWidth(50),
+      height: 50,
       width: double.infinity,
       child: Row(
         children: [
           Expanded(
             child: TextField(
               style: TextStyle(
-                height: getProportionWidth(3.3),
-                fontSize: getProportionWidth(14),
+                fontSize: 14,
               ),
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: getProportionWidth(20),
-                ),
                 border: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.transparent),
                   borderRadius: BorderRadius.circular(15),
@@ -42,11 +39,11 @@ class SearchInput extends StatelessWidget {
                 isDense: true,
                 prefixIcon: Padding(
                   padding: EdgeInsets.only(
-                    left: getProportionWidth(20),
-                    right: getProportionWidth(10),
+                    left: 20,
+                    right: 10,
                   ),
                   child: Icon(
-                    size: getProportionWidth(24),
+                    size: 24,
                     Icons.search,
                     color: Theme.of(context).iconTheme.color,
                   ),
@@ -64,28 +61,50 @@ class SearchInput extends StatelessWidget {
           ),
           if (showFilterBtn)
             Container(
-              margin: EdgeInsets.only(left: getProportionWidth(10)),
-              height: getProportionWidth(50),
-              width: getProportionWidth(50),
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(12),
-                    ),
+              margin: const EdgeInsets.only(left: 10),
+              child: RoundButton(
+                press: () {},
+                child: SizedBox(
+                  child: SvgPicture.asset(
+                    'assets/icons/filter.svg',
+                    width: 24,
+                    color: Theme.of(context).iconTheme.color,
                   ),
-                  backgroundColor:
-                      Theme.of(context).buttonTheme.colorScheme!.background,
-                ),
-                onPressed: () {},
-                child: SvgPicture.asset(
-                  'assets/icons/filter.svg',
-                  width: getProportionWidth(24),
-                  color: Theme.of(context).iconTheme.color,
                 ),
               ),
             )
         ],
+      ),
+    );
+  }
+}
+
+class RoundButton extends StatelessWidget {
+  const RoundButton({
+    Key? key,
+    required this.press,
+    required this.child,
+  }) : super(key: key);
+  final Widget child;
+  final VoidCallback press;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 50,
+      width: 50,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(12),
+            ),
+          ),
+          backgroundColor:
+              Theme.of(context).buttonTheme.colorScheme!.background,
+        ),
+        onPressed: press,
+        child: child,
       ),
     );
   }

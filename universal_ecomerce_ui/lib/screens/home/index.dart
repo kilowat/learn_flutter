@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:universal_ecommerce_ui/import.dart';
+
+import '../../import.dart';
 
 class IndexPage extends StatelessWidget {
   const IndexPage({
@@ -15,31 +16,34 @@ class IndexPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(
             top: 60,
-            bottom: NavBar.height + kDefaultPadding / 2,
+            bottom: 75 + kDefaultPadding / 2,
           ),
           child: Column(
             children: [
               ScreenTitle(text: S.of(context).HOME_SCREEN_TITLE),
-              SizedBox(height: getProportionWidth(20)),
+              const SizedBox(height: 20),
               const SearchInput(),
-              SizedBox(height: getProportionWidth(20)),
+              const SizedBox(height: 20),
               const _BannerList(),
-              SizedBox(height: getProportionWidth(20)),
+              const SizedBox(height: 20),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _RecommendLink(
                     title: S.of(context).NEAREST_RESTAURANT,
-                    press: () {},
+                    press: () {
+                      navigator.push(RestaurantsScreen().getRoute());
+                    },
                   ),
-                  SizedBox(height: getProportionHeight(10)),
+                  const SizedBox(height: 10),
                   const _RestaurantList(),
-                  SizedBox(height: getProportionWidth(5)),
+                  const SizedBox(height: 5),
                   _RecommendLink(
                     title: S.of(context).POPULAR_MENU,
                     press: () {},
                   ),
-                  SizedBox(height: getProportionHeight(10)),
-                  PopularMenu(menus: [menuDemo[0]]),
+                  const SizedBox(height: 10),
+                  PopularMenu(menus: menuDemo.sublist(0, 4)),
                 ],
               ),
             ],
@@ -64,7 +68,7 @@ class _BannerListState extends State<_BannerList> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: getProportionWidth(150),
+      height: Sizes.dimen_150.w,
       child: _BannerItem(banner: bannersDemo[0]),
     );
   }
@@ -85,7 +89,7 @@ class _BannerItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(Sizes.dimen_20),
             image: DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage(banner.image),
@@ -102,12 +106,11 @@ class _BannerItem extends StatelessWidget {
                   Text(
                     banner.title,
                     style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: getProportionWidth(17),
-                    ),
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: Sizes.dimen_17.sp),
                   ),
-                  SizedBox(height: getProportionWidth(5)),
+                  SizedBox(height: Sizes.dimen_6.sp),
                   Container(
                     decoration: BoxDecoration(
                       boxShadow: [
@@ -118,18 +121,23 @@ class _BannerItem extends StatelessWidget {
                       ],
                     ),
                     child: SizedBox(
-                      height: getProportionWidth(24),
+                      height: Sizes.dimen_32.w,
                       child: TextButton(
                         style: TextButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: kDefaultPadding,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(Sizes.dimen_6.w),
+                            ),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: kDefaultPadding.w,
                           ),
                           backgroundColor: Colors.white,
                         ),
                         onPressed: () {},
                         child: Text(
                           S.of(context).BUY_NOW,
-                          style: TextStyle(fontSize: getProportionWidth(10)),
+                          style: TextStyle(fontSize: Sizes.dimen_10.sp),
                         ),
                       ),
                     ),
@@ -149,24 +157,29 @@ class _RestaurantList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cardWidthMultiply = Responsive.isTablePortrait(context) ? 4.2 : 2.2;
+
     return Column(
       children: [
         SingleChildScrollView(
-          padding: const EdgeInsets.only(bottom: 4),
+          padding: const EdgeInsets.only(bottom: 4, left: 15, right: 15),
           scrollDirection: Axis.horizontal,
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: List.generate(
               restaurantDemo.length,
               (index) => Container(
-                margin: EdgeInsets.only(left: getProportionWidth(20)),
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                width: ScreenUtil.screenWidth / cardWidthMultiply -
+                    kDefaultPadding,
                 child: RestaurantCard(
                   restaurant: restaurantDemo[index],
                 ),
               ),
             ),
           ),
-        ),
+        )
       ],
     );
   }
@@ -190,9 +203,9 @@ class _RecommendLink extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: getProportionWidth(15),
+              fontSize: 15,
             ),
           ),
           TextButton(
@@ -200,7 +213,7 @@ class _RecommendLink extends StatelessWidget {
             child: Text(
               S.of(context).VIEW_MORE,
               style: TextStyle(
-                fontSize: getProportionWidth(12),
+                fontSize: 12,
                 fontWeight: FontWeight.w400,
                 color: Theme.of(context).buttonTheme.colorScheme!.secondary,
               ),

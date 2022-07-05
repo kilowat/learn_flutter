@@ -36,4 +36,11 @@ final List<MenuModel> menuDemo = [
     subTitle: "Wijie Resto",
     price: 5,
   ),
+  MenuModel(
+    id: 3,
+    image: 'assets/demo/menu_4.jpg',
+    title: "Russian salad",
+    subTitle: "Noodle Home",
+    price: 15,
+  ),
 ];
