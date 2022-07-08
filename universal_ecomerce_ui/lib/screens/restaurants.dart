@@ -13,41 +13,74 @@ class RestaurantsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final items = [...restaurantDemo, ...restaurantDemo, ...restaurantDemo];
     return Scaffold(
-      appBar: CustomAppBar(),
-      body: Center(
-        child: Text('Rest'),
-      ),
-    );
-  }
-}
-
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: EdgeInsets.only(
-          right: kDefaultPadding,
-          top: 10,
-          left: kDefaultPadding,
-        ),
-        child: PreferredSize(
-          preferredSize: Size.fromHeight(AppBar().preferredSize.height),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              RoundButton(
-                press: () {
-                  navigator.pop();
-                },
-                child: const Icon(
-                  Icons.arrow_back_ios_new,
-                  color: kSecondaryColor,
+      extendBodyBehindAppBar: true,
+      body: Padding(
+        padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+        child: ScreenContainer(
+          gradient: kHomeScreenGradient,
+          backgroundImage: kBackgroundDecorationImage,
+          child: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                floating: false,
+                pinned: false,
+                backgroundColor: Colors.transparent,
+                expandedHeight: 140.0,
+                leadingWidth: 45 + kDefaultPadding,
+                elevation: 0,
+                leading: Container(
+                  padding: const EdgeInsets.only(left: kDefaultPadding),
+                  margin: const EdgeInsets.symmetric(vertical: 5),
+                  child: RoundButton(
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 8),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        size: 20,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                    ),
+                    press: () {
+                      navigator.pop();
+                    },
+                  ),
+                ),
+                title: Text(
+                  'Nearest Restaurant',
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1!.color),
+                ),
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Container(
+                    margin: const EdgeInsets.only(top: 70),
+                    child: const SearchInput(),
+                  ),
+                ),
+              ),
+              SliverPadding(
+                padding: const EdgeInsets.only(
+                  left: kDefaultPadding,
+                  right: kDefaultPadding,
+                  bottom: kDefaultPadding,
+                  top: kDefaultPadding / 2,
+                ),
+                sliver: SliverGrid(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount:
+                        Responsive.isMobilePortrait(context) ? 2 : 3,
+                    mainAxisSpacing: kDefaultPadding,
+                    crossAxisSpacing: kDefaultPadding,
+                    childAspectRatio:
+                        RestaurantCard.width / RestaurantCard.height,
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      return RestaurantCard(restaurant: items[index]);
+                    },
+                    childCount: items.length,
+                  ),
                 ),
               ),
             ],
@@ -56,8 +89,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
+}
 
+class _RestaurantList extends StatelessWidget {
+  const _RestaurantList({
+    Key? key,
+    required this.restaurants,
+  }) : super(key: key);
+  final List<RestaurantModel> restaurants;
   @override
-  // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(),
+    );
+  }
 }

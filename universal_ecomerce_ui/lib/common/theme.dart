@@ -12,13 +12,28 @@ ThemeData lightThemeData(BuildContext context) {
     ),
     iconTheme: const IconThemeData(color: kSecondaryColor),
     scaffoldBackgroundColor: Colors.white,
-    textTheme: const TextTheme(
-      bodyText1: TextStyle(color: kTextColor),
-      bodyText2: TextStyle(color: kTextColor),
-      headline6: TextStyle(
+    textTheme: TextTheme(
+      bodyText1: const TextStyle(color: kTextColor),
+      bodyText2: const TextStyle(color: kTextColor),
+      headline2: const TextStyle(
+        color: kTextColor,
+        fontSize: 27,
+        fontWeight: FontWeight.bold,
+      ),
+      headline5: const TextStyle(
+        fontSize: 15,
+        color: kTextColor,
+        fontWeight: FontWeight.bold,
+      ),
+      headline6: const TextStyle(
         color: kSecondaryVariant,
         fontWeight: FontWeight.bold,
       ),
+      labelMedium: const TextStyle(
+        color: kSecondaryVariant,
+        fontSize: 12,
+      ),
+      caption: TextStyle(color: kGreyColor.withOpacity(0.3)),
     ),
     buttonTheme: ButtonThemeData(
       colorScheme: ColorScheme.light(
@@ -37,10 +52,21 @@ ThemeData darkThemeData(BuildContext context) {
     textTheme: const TextTheme(
       bodyText1: TextStyle(color: Colors.white),
       bodyText2: TextStyle(color: Colors.white),
+      headline2: TextStyle(
+        fontSize: 27,
+        fontWeight: FontWeight.bold,
+      ),
+      headline5: TextStyle(
+        fontSize: 15,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
       headline6: TextStyle(
         color: kSecondaryVariant,
         fontWeight: FontWeight.bold,
       ),
+      labelMedium: TextStyle(color: kSecondaryVariant, fontSize: 12),
+      caption: TextStyle(color: kGreyColor),
     ),
     colorScheme: const ColorScheme.dark(
       primary: kPrimaryColor,

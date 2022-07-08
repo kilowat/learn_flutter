@@ -16,13 +16,15 @@ class ScreenContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isLightTheme =
         MediaQuery.of(context).platformBrightness == Brightness.light;
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        image: backgroundImage,
-        gradient: isLightTheme ? gradient : null,
+    return Expanded(
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: backgroundImage,
+          gradient: isLightTheme ? gradient : null,
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }

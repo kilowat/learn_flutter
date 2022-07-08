@@ -15,8 +15,8 @@ class IndexPage extends StatelessWidget {
         backgroundImage: kBackgroundDecorationImage,
         child: Padding(
           padding: const EdgeInsets.only(
-            top: 60,
-            bottom: 75 + kDefaultPadding / 2,
+            top: 70,
+            bottom: NavBar.height + kDefaultPadding / 2,
           ),
           child: Column(
             children: [
@@ -32,7 +32,7 @@ class IndexPage extends StatelessWidget {
                   _RecommendLink(
                     title: S.of(context).NEAREST_RESTAURANT,
                     press: () {
-                      navigator.push(RestaurantsScreen().getRoute());
+                      navigator.push(const RestaurantsScreen().getRoute());
                     },
                   ),
                   const SizedBox(height: 10),
@@ -203,10 +203,7 @@ class _RecommendLink extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-            ),
+            style: Theme.of(context).textTheme.headline5,
           ),
           TextButton(
             onPressed: press,

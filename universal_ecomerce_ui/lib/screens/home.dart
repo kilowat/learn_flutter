@@ -22,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedMenuIndex = 0;
   late PageController _pageController;
-  final pages = const [
+  final pages = [
     IndexPage(),
     ProfilePage(),
     CartPage(),

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 const double kTemplateHeight = 812;
 const double kTemplateWidth = 375;
 const Color kTextColor = Color(0xFF09051C);
+const Color kGreyColor = Color(0xFF3B3B3B);
 const Color kBackgroundColor = Color(0xFFFFFFFF);
 const Color kPrimaryColor = Color(0xFF35D381);
 const Color kSecondaryColor = Color(0xFFDA6317);
@@ -14,6 +15,7 @@ const Color kDarkBackgroundColor = Color(0xFF1B1B21);
 const Color kDarkBlackBackgroundColor = Color(0xFF0E0F10);
 const Color kDarkBackgroundLighterColor = Color(0xFF282828);
 const double kDefaultPadding = 25;
+
 const kHomeScreenGradient = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
@@ -22,6 +24,16 @@ const kHomeScreenGradient = LinearGradient(
     Color(0xFFE9F2FE),
   ],
   tileMode: TileMode.mirror,
+);
+
+const kProfileScreenGradient = LinearGradient(
+  begin: Alignment.topCenter,
+  end: Alignment.center,
+  colors: <Color>[
+    Colors.white,
+    Color(0xFFE9F2FE),
+  ],
+  tileMode: TileMode.clamp,
 );
 
 const kBackgroundDecorationImage = DecorationImage(

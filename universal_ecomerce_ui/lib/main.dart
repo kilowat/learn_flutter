@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:universal_ecommerce_ui/screens/home.dart';
 
 import 'generated/l10n.dart';
 import 'import.dart';

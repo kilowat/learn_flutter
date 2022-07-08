@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../import.dart';
 
-class SearchInput extends StatelessWidget {
+class SearchInput extends StatelessWidget implements PreferredSizeWidget {
   const SearchInput({
     Key? key,
     this.showFilterBtn = true,
@@ -77,6 +77,10 @@ class SearchInput extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => Size(ScreenUtil.screenWidth, 50);
 }
 
 class RoundButton extends StatelessWidget {
@@ -84,20 +88,23 @@ class RoundButton extends StatelessWidget {
     Key? key,
     required this.press,
     required this.child,
+    this.width = 50,
+    this.height = 50,
   }) : super(key: key);
   final Widget child;
   final VoidCallback press;
-
+  final double width;
+  final double height;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
-      width: 50,
+      height: height,
+      width: width,
       child: TextButton(
         style: TextButton.styleFrom(
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(12),
+              Radius.circular(15),
             ),
           ),
           backgroundColor:

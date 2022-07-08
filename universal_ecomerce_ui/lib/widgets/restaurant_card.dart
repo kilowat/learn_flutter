@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../import.dart';
 
 class RestaurantCard extends StatelessWidget {
+  static const double width = 147;
+  static const double height = 184;
   const RestaurantCard({Key? key, required this.restaurant}) : super(key: key);
 
   final RestaurantModel restaurant;
@@ -10,7 +12,7 @@ class RestaurantCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 147 / 184,
+      aspectRatio: width / height,
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
