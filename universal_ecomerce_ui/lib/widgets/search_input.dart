@@ -19,7 +19,7 @@ class SearchInput extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Expanded(
             child: TextField(
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
               ),
               decoration: InputDecoration(
@@ -38,7 +38,7 @@ class SearchInput extends StatelessWidget implements PreferredSizeWidget {
                 filled: true,
                 isDense: true,
                 prefixIcon: Padding(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     left: 20,
                     right: 10,
                   ),

@@ -65,11 +65,12 @@ class _ProfileContent extends StatelessWidget {
         MediaQuery.of(context).platformBrightness == Brightness.light;
     return ConstrainedBox(
       constraints: BoxConstraints(
-          minHeight: ScreenUtil.screenHeight * 0.6 - kDefaultPadding),
+        minHeight: ScreenUtil.screenHeight * 0.6 - kDefaultPadding,
+      ),
       child: Container(
         padding: const EdgeInsets.only(
           top: 0,
-          bottom: kDefaultPadding * 2 + _PromoList.height,
+          bottom: kDefaultPadding,
           left: kDefaultPadding,
           right: kDefaultPadding,
         ),
@@ -89,7 +90,12 @@ class _ProfileContent extends StatelessWidget {
               press: () {},
             ),
             const _PromoList(),
-            Text('favorite'),
+            const SizedBox(height: 24),
+            Text(
+              S.current.FAVORITE,
+              style: Theme.of(context).textTheme.headline5,
+            ),
+            MenuList(menus: menuDemo, isFavorite: true),
           ],
         ),
       ),
@@ -148,7 +154,7 @@ class _Avatar extends StatelessWidget {
       width: ScreenUtil.screenWidth,
       decoration: BoxDecoration(
         color: Theme.of(context).scaffoldBackgroundColor,
-        image: DecorationImage(
+        image: const DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage('assets/demo/profile_2.jpg'),
         ),

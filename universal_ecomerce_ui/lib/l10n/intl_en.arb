@@ -7,6 +7,6 @@
   "MENU_ITEM_HOME" : "Home",
   "MENU_ITEM_PROFILE" : "Profile",
   "MENU_ITEM_CART" : "Cart",
-  "MENU_ITEM_NOTIFY" : "Notify"
-
+  "MENU_ITEM_NOTIFY" : "Notify",
+  "FAVORITE": "Favorite"
 }

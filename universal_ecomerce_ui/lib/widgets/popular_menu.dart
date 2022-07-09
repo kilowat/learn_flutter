@@ -24,7 +24,7 @@ class PopularMenu extends StatelessWidget {
       crossAxisCount: Responsive.isMobilePortrait(context) ? 1 : 2,
       shrinkWrap: true,
       children: List.generate(menus.length, (index) {
-        return _MenuCard(menu: menus[index]);
+        return _PopularMenuCard(menu: menus[index]);
       }),
     );
   }
@@ -55,7 +55,7 @@ class PopularMenuWrap extends StatelessWidget {
           (index) => Container(
             height: 87,
             width: cardWidth,
-            child: _MenuCard(menu: menus[index]),
+            child: _PopularMenuCard(menu: menus[index]),
           ),
         ),
       ),
@@ -63,8 +63,8 @@ class PopularMenuWrap extends StatelessWidget {
   }
 }
 
-class _MenuCard extends StatelessWidget {
-  const _MenuCard({
+class _PopularMenuCard extends StatelessWidget {
+  const _PopularMenuCard({
     Key? key,
     required this.menu,
   }) : super(key: key);
