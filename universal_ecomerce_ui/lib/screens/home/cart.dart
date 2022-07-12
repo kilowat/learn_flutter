@@ -30,8 +30,28 @@ class CartPage extends StatelessWidget {
                     right: kDefaultPadding,
                   ),
                   margin: const EdgeInsets.symmetric(vertical: 6),
-                  child: _BasketItem(
-                    basketItem: basketDemo[index],
+                  child: Dismissible(
+                    key: Key(basketDemo[index].id.toString()),
+                    direction: DismissDirection.endToStart,
+                    background: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: kSecondaryVariant,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        children: const [
+                          Spacer(),
+                          Icon(
+                            Icons.remove_shopping_cart,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                    child: _BasketItem(
+                      basketItem: basketDemo[index],
+                    ),
                   ),
                 ),
               ),
@@ -56,7 +76,7 @@ class _TotalBasket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final columnTextStyle = const TextStyle(color: Colors.white, fontSize: 14);
+    const columnTextStyle = TextStyle(color: Colors.white, fontSize: 14);
     return Container(
       margin: const EdgeInsets.only(
         left: kDefaultPadding / 2,
@@ -70,11 +90,11 @@ class _TotalBasket extends StatelessWidget {
       height: 220,
       width: ScreenUtil.screenWidth - kDefaultPadding,
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Row(
-              children: [
+              children: const [
                 Text('Sub-Total', style: columnTextStyle),
                 Spacer(),
                 Text('120 \$', style: columnTextStyle),
@@ -82,7 +102,7 @@ class _TotalBasket extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Row(
-              children: [
+              children: const [
                 Text('Delivery Charge', style: columnTextStyle),
                 Spacer(),
                 Text('12 \$', style: columnTextStyle),
@@ -90,7 +110,7 @@ class _TotalBasket extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Row(
-              children: [
+              children: const [
                 Text('Discount', style: columnTextStyle),
                 Spacer(),
                 Text('10 \$', style: columnTextStyle),
@@ -198,7 +218,86 @@ class _BasketItem extends StatelessWidget {
             ],
           ),
           const Spacer(),
+          _QuantityInput(basketItem: basketItem)
         ],
+      ),
+    );
+  }
+}
+
+class _QuantityInput extends StatelessWidget {
+  const _QuantityInput({
+    Key? key,
+    required this.basketItem,
+  }) : super(key: key);
+
+  final BasketItemModel basketItem;
+
+  @override
+  Widget build(BuildContext context) {
+    final qtyColor =
+        MediaQuery.of(context).platformBrightness == Brightness.light
+            ? Theme.of(context).primaryColor
+            : Colors.white.withOpacity(0.7);
+    return Row(
+      children: [
+        _QuantityButton(press: () {}, icon: Icons.remove),
+        SizedBox(
+          height: 26,
+          width: 30,
+          child: TextField(
+            controller: TextEditingController(
+              text: basketItem.quantity.toString(),
+            ),
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            keyboardType: const TextInputType.numberWithOptions(
+              decimal: false,
+              signed: false,
+            ),
+            style: TextStyle(color: qtyColor),
+            decoration: const InputDecoration(
+              contentPadding: EdgeInsets.only(left: 4, top: 0, bottom: 16),
+              border: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              errorBorder: InputBorder.none,
+              disabledBorder: InputBorder.none,
+            ),
+          ),
+        ),
+        _QuantityButton(press: () {}, icon: Icons.add),
+      ],
+    );
+  }
+}
+
+class _QuantityButton extends StatelessWidget {
+  const _QuantityButton({
+    Key? key,
+    required this.press,
+    required this.icon,
+  }) : super(key: key);
+
+  final VoidCallback press;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 26,
+      height: 26,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.zero,
+          backgroundColor: Theme.of(context).primaryColor,
+        ),
+        onPressed: press,
+        child: Icon(
+          icon,
+          size: 18,
+          color: Colors.white,
+        ),
       ),
     );
   }
