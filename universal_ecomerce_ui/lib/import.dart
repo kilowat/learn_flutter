@@ -19,6 +19,7 @@ export 'widgets/card_detail_actions.dart';
 export 'widgets/circular_icon_button.dart';
 export 'widgets/clipped_block.dart';
 export 'widgets/custom_appbar.dart';
+export 'widgets/detail_content.dart';
 export 'widgets/label.dart';
 export 'widgets/menu_card.dart';
 export 'widgets/menu_list.dart';

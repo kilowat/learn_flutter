@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:universal_ecommerce_ui/widgets/badge.dart';
 
 import '../import.dart';
 
@@ -43,40 +42,18 @@ class RestDetailScreen extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: _RestContent(rest: rest),
+            child: Column(
+              children: [
+                DetailContent(
+                  title: rest.name,
+                  distance: rest.distance,
+                  rating: rest.rating,
+                  detailText: rest.detailText,
+                ),
+                Text('Some content'),
+              ],
+            ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class _RestContent extends StatelessWidget {
-  const _RestContent({
-    Key? key,
-    required this.rest,
-  }) : super(key: key);
-  final RestaurantModel rest;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: kDefaultPadding, vertical: kDefaultPadding / 2),
-      height: 1000,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CardDetailActions(
-            locationPress: () {},
-            favoritePress: () {},
-            status: BadgeStatus.popular,
-          ),
-          const SizedBox(height: 10),
-          Text(
-            rest.name,
-            style: Theme.of(context).textTheme.headline2,
-          )
         ],
       ),
     );

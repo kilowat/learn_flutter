@@ -163,7 +163,7 @@ class _BasketItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90,
+      height: 100,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.secondaryContainer,

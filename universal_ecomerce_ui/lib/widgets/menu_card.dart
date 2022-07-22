@@ -45,7 +45,6 @@ class MenuCard extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const SizedBox(height: 1),
               Text(
                 menu.subTitle,
                 style: TextStyle(
@@ -57,7 +56,7 @@ class MenuCard extends StatelessWidget {
                       .withOpacity(0.3),
                 ),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 2),
               Text(
                 '\$${menu.price}',
                 style: TextStyle(

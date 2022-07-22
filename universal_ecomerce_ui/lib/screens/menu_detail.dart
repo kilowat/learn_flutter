@@ -39,27 +39,16 @@ class MenuDetailScreen extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: _MenuContent(menu: menu),
+            child: Column(
+              children: [
+                DetailContent(
+                  title: menu.title,
+                ),
+              ],
+            ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class _MenuContent extends StatelessWidget {
-  const _MenuContent({
-    Key? key,
-    required this.menu,
-  }) : super(key: key);
-  final MenuModel menu;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-      height: 1000,
-      child: Text(menu.title),
     );
   }
 }

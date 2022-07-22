@@ -17,7 +17,7 @@ class MenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       physics: isScrollable ? ScrollPhysics() : NeverScrollableScrollPhysics(),
-      childAspectRatio: 1 / 0.26,
+      childAspectRatio: 1 / 0.28,
       mainAxisSpacing: kDefaultPadding,
       crossAxisSpacing: kDefaultPadding,
       crossAxisCount: Responsive.isMobilePortrait(context) ? 1 : 2,

@@ -17,6 +17,9 @@ class CircularIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      focusElevation: 0,
+      hoverElevation: 0,
+      highlightElevation: 0,
       elevation: 0.0,
       onPressed: press,
       constraints: const BoxConstraints.tightFor(

@@ -14,7 +14,7 @@ ThemeData lightThemeData(BuildContext context) {
     scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme(
       bodyText1: const TextStyle(color: kTextColor),
-      bodyText2: const TextStyle(color: kTextColor),
+      bodyText2: const TextStyle(color: kTextColor, height: 1.5),
       headline2: const TextStyle(
         color: kTextColor,
         fontSize: 27,
