@@ -291,6 +291,11 @@ class _QuantityButton extends StatelessWidget {
         style: TextButton.styleFrom(
           padding: EdgeInsets.zero,
           backgroundColor: Theme.of(context).primaryColor,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(8),
+            ),
+          ),
         ),
         onPressed: press,
         child: Icon(

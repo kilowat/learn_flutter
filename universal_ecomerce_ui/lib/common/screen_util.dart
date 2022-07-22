@@ -52,6 +52,8 @@ class ScreenUtil {
 
   ///The vertical extent of this size. dp
   static double get screenHeight => _screenHeight / _pixelRatio;
+  static double get screenHeightFull =>
+      _screenHeight / _pixelRatio + _statusBarHeight + _bottomBarHeight;
 
   /// The vertical extent of this size. px
   static double get screenWidthPx => _screenWidth;

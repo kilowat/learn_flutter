@@ -169,12 +169,18 @@ class _RestaurantList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: List.generate(
               restaurantDemo.length,
-              (index) => Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
-                width: ScreenUtil.screenWidth / cardWidthMultiply -
-                    kDefaultPadding,
-                child: RestaurantCard(
-                  restaurant: restaurantDemo[index],
+              (index) => InkWell(
+                onTap: () {
+                  navigator.push(
+                      RestDetailScreen(rest: restaurantDemo[index]).getRoute());
+                },
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  width: ScreenUtil.screenWidth / cardWidthMultiply -
+                      kDefaultPadding,
+                  child: RestaurantCard(
+                    restaurant: restaurantDemo[index],
+                  ),
                 ),
               ),
             ),

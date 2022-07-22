@@ -17,14 +17,20 @@ class PopularMenu extends StatelessWidget {
           left: kDefaultPadding,
           right: kDefaultPadding,
           bottom: kDefaultPadding),
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       childAspectRatio: 1 / 0.24,
       mainAxisSpacing: kDefaultPadding,
       crossAxisSpacing: kDefaultPadding,
       crossAxisCount: Responsive.isMobilePortrait(context) ? 1 : 2,
       shrinkWrap: true,
       children: List.generate(menus.length, (index) {
-        return _PopularMenuCard(menu: menus[index]);
+        return InkWell(
+            onTap: () {
+              navigator.push(
+                MenuDetailScreen(menu: menus[index]).getRoute(),
+              );
+            },
+            child: _PopularMenuCard(menu: menus[index]));
       }),
     );
   }

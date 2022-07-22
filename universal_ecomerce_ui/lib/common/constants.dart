@@ -15,7 +15,7 @@ const Color kDarkBackgroundColor = Color(0xFF1B1B21);
 const Color kDarkBlackBackgroundColor = Color(0xFF0E0F10);
 const Color kDarkBackgroundLighterColor = Color(0xFF282828);
 const double kDefaultPadding = 25;
-
+const double kPrimaryOpacity = 0.15;
 const kHomeScreenGradient = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,

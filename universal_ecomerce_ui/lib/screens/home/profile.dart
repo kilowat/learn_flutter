@@ -17,33 +17,7 @@ class ProfilePage extends StatelessWidget {
             ),
             pinned: false,
             expandedHeight: ScreenUtil.screenHeight * 0.4,
-            flexibleSpace: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                const Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: _Avatar(),
-                ),
-                Positioned(
-                  bottom: -1,
-                  left: 0,
-                  right: 0,
-                  child: Container(
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(30.0.w),
-                        topLeft: Radius.circular(30.0.w),
-                      ),
-                      color: Theme.of(context).colorScheme.secondaryContainer,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            flexibleSpace: const ClippedBlock(child: _Avatar()),
           ),
           const SliverToBoxAdapter(
             child: _ProfileContent(),

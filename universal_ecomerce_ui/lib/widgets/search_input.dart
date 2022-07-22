@@ -90,11 +90,14 @@ class RoundButton extends StatelessWidget {
     required this.child,
     this.width = 50,
     this.height = 50,
+    this.isContrast = false,
   }) : super(key: key);
   final Widget child;
   final VoidCallback press;
   final double width;
   final double height;
+  final bool isContrast;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -107,8 +110,9 @@ class RoundButton extends StatelessWidget {
               Radius.circular(15),
             ),
           ),
-          backgroundColor:
-              Theme.of(context).buttonTheme.colorScheme!.background,
+          backgroundColor: isContrast
+              ? Theme.of(context).colorScheme.background
+              : Theme.of(context).buttonTheme.colorScheme!.background,
         ),
         onPressed: press,
         child: child,

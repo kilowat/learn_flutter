@@ -30,23 +30,7 @@ class RestaurantsScreen extends StatelessWidget {
                 expandedHeight: 140.0,
                 leadingWidth: 45 + kDefaultPadding,
                 elevation: 0,
-                leading: Container(
-                  padding: const EdgeInsets.only(left: kDefaultPadding),
-                  margin: const EdgeInsets.symmetric(vertical: 5),
-                  child: RoundButton(
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 8),
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        size: 20,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                    ),
-                    press: () {
-                      navigator.pop();
-                    },
-                  ),
-                ),
+                leading: BackButtonCustom(),
                 title: Text(
                   'Nearest Restaurant',
                   style: TextStyle(
@@ -77,7 +61,16 @@ class RestaurantsScreen extends StatelessWidget {
                   ),
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
-                      return RestaurantCard(restaurant: items[index]);
+                      return InkWell(
+                        onTap: () {
+                          navigator.push(RestDetailScreen(
+                            rest: items[index],
+                          ).getRoute());
+                        },
+                        child: RestaurantCard(
+                          restaurant: items[index],
+                        ),
+                      );
                     },
                     childCount: items.length,
                   ),
@@ -87,20 +80,6 @@ class RestaurantsScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _RestaurantList extends StatelessWidget {
-  const _RestaurantList({
-    Key? key,
-    required this.restaurants,
-  }) : super(key: key);
-  final List<RestaurantModel> restaurants;
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(),
     );
   }
 }
